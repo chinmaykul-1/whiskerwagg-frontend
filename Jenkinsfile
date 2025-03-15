@@ -15,7 +15,9 @@ pipeline{
         }
         stage('Logon to aws node and pull image'){
             steps{
-                script{
+                withCredentials([sshUserPrivateKey(credentialsId: 'ec2-creds', keyFileVariable: 'SSH_KEY'),
+                usernamePassword(credentialsId: 'docker-hub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')])
+                {
                     sh """
                     ssh  -i ./test.pem $EC2_HOST << 'EOF'
                     echo "connected to ec2 node"
