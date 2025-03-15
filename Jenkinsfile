@@ -17,7 +17,7 @@ pipeline{
             steps{
                 script{
                     sh """
-                    ssh -o StrictHostKeyChecking=no -i $PRIVATE_KEY $EC2_HOST << 'EOF'
+                    ssh -o StrictHostKeyChecking=no -i ./test.pem $EC2_HOST << 'EOF'
                     echo "connected to ec2 node"
                     sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
                     docker pull chinmaykulkarni19/whiskerwagg-frontend
