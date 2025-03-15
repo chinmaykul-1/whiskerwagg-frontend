@@ -22,11 +22,11 @@ pipeline{
                     ssh  -i $SSH_KEY $EC2_HOST << EOF
                     echo "connected to ec2 node"
                     sudo su -
-                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                    docker pull chinmaykulkarni19/whiskerwagg-frontend
-                    docker stop frontend || true
-                    docker rm frontend || true
-                    docker run -d -p 5173:5173 --rm --name frontend chinmaykulkarni19/whiskerwagg-frontend
+                    sudo echo $DOCKER_PASS | sudo docker login -u $DOCKER_USER --password-stdin
+                    sudo docker pull chinmaykulkarni19/whiskerwagg-frontend
+                    sudo docker stop frontend || true
+                    sudo docker rm frontend || true
+                    sudo docker run -d -p 5173:5173 --name frontend chinmaykulkarni19/whiskerwagg-frontend
                     EOF
                     """
                 }
