@@ -26,7 +26,7 @@ pipeline{
                     docker pull chinmaykulkarni19/whiskerwagg-frontend
                     docker stop frontend || true
                     docker rm frontend  || true
-                    docker run -p 5173:5173 --rm --name frontend chinmaykulkarni19/whiskerwagg-frontend
+                    docker run -d -p 5173:5173 --rm --name frontend chinmaykulkarni19/whiskerwagg-frontend
                     EOF
                     """
                 }
