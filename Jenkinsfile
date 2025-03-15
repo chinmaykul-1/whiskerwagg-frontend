@@ -25,7 +25,7 @@ pipeline{
                     echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
                     docker pull chinmaykulkarni19/whiskerwagg-frontend
                     docker stop frontend || true
-                    docker rm frontend  || true
+                    docker rm frontend || true
                     docker run -d -p 5173:5173 --rm --name frontend chinmaykulkarni19/whiskerwagg-frontend
                     EOF
                     """
