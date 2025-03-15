@@ -27,7 +27,6 @@ pipeline{
                     sudo docker stop frontend || true
                     sudo docker rm frontend || true
                     sudo docker run -d -p 5173:5173 --name frontend chinmaykulkarni19/whiskerwagg-frontend
-                    EOF
                     """
                 }
 
