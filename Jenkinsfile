@@ -19,7 +19,7 @@ pipeline{
                     sh """
                     ssh -o StrictHostKeyChecking=no -i $PRIVATE_KEY $EC2_HOST << 'EOF'
                     echo "connected to ec2 node"
-                    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin'
+                    sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
                     docker pull chinmaykulkarni19/whiskerwagg-frontend
                     docker stop frontend || true
                     docker rm frontend  || true
